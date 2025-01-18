@@ -7,7 +7,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "mkdir -p output/debug && g++ -g source/*.cpp -Iinclude -o output/debug/BuilderPattern"
+                "mkdir -p output/debug && g++ -g -std=c++17 source/*.cpp -Iinclude -o output/debug/BuilderPattern"
             ],
             "group": {
                 "kind": "build",

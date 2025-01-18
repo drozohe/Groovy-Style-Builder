@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.cpp": "cpp",
+			"*.h": "cpp",
+			"initializer_list": "cpp",
+			"vector": "cpp"
+		}
+	}
+}
