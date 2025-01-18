@@ -5,12 +5,18 @@
 #include <iostream>
 
 using namespace std;
-int main() {
-    
+
+void simpleExample() {
     cout << P {
         IMG { "http://a.com/b.png" },
         IMG { "http://a.com/c.png" }
     } << endl;
+}
+
+void complexExample();
+int main() {
+    simpleExample();
+    complexExample();
     
     return 0;
 }

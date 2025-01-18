@@ -15,7 +15,10 @@ struct Tag
 
     friend ostream& operator<<(ostream& os, Tag const& tag)
     {
-        os << "<" << tag.name;
+        static int indent = 0;
+        string indentation(indent * 2, ' ');
+
+        os << indentation << "<" << tag.name;
 
         for (auto const& att : tag.attributes)
             os << " " << att.first << "=\"" << att.second << "\"";
@@ -29,12 +32,14 @@ struct Tag
             os << ">" << endl;
 
             if (tag.text.length())
-                os << tag.text << endl;
+                os << indentation << "  " << tag.text << endl;
 
+            indent++;
             for (auto const& child : tag.children)
                 os << child;
+            indent--;
 
-            os << "</" << tag.name << ">" << endl;
+            os << indentation << "</" << tag.name << ">" << endl;
         }
         return os;
     }
@@ -42,8 +47,6 @@ struct Tag
     protected:
 
     public:
-    Tag(string const& name, string const& text)
-        : name(name), text(text) {}
-    Tag(string const& name, vector<Tag> const& children)
-        : name(name), children(children) {}
+        Tag(string const& name, string const& text) : name(name), text(text) {}
+        Tag(string const& name, vector<Tag> const& children) : name(name), children(children) {}
 };
